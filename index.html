@@ -10,12 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Supabase Library (Crucial: This loads the database library first) -->
+    <!-- 1. Supabase Library Code (Added Here First) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Stylesheets & Scripts -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -23,58 +22,104 @@
     <section class="hero">
         <p class="subtitle">TOP 6 EUROPE</p>
         <h1>AKI</h1>
-        <p class="tagline">Professional TSB Coaching Guaranteed Stage 1 Low / 1 Mid<br>Master Neutral • Movement • Ranked • Tournaments</p>
-        
-        <!-- Live Visitor Counter Display -->
+        <p class="tagline">
+            Professional TSB Coaching
+            <br><br>
+            Guaranteed Stage 1 Low / 1 Mid
+            <br><br>
+            Master Neutral • Movement • Ranked • Tournaments
+        </p>
+
+        <!-- 2. Live Visitor Counter Placement -->
         <div class="visitor-counter">
             <span class="pulse-dot"></span>
             <span id="visitor-count">Connecting...</span>
         </div>
 
         <br>
-        <button class="mainButton" onclick="copyDiscord()">START TRAINING</button>
+        <a href="#pricing" class="mainButton">START TRAINING</a>
     </section>
 
     <!-- Packages Section -->
-    <section class="packages-section">
-        <h2 class="sectionTitle">TRAINING PACKAGES</h2>
-        <div class="packages-container">
-            <!-- 500 Robux Card -->
+    <section id="pricing">
+        <h2 class="sectionTitle">Training Packages</h2>
+        <div class="cards">
+            
+            <!-- 1 Session -->
             <div class="card">
                 <h3>1 Session</h3>
-                <div class="price">500 Robux</div>
-                <p>30 Minutes of intensive fundamental mechanics & neutral training.</p>
-                <a href="https://www.roblox.com/game-pass/872482434/500" target="_blank" class="buy-btn robux">Buy with Robux</a>
+                <h1>500 R$</h1>
+                <p>Guaranteed Stage 1 Low / 1 Mid</p>
+                <a target="_blank" href="https://www.roblox.com/game-pass/872482434/500">Buy With Robux</a>
             </div>
 
-            <!-- 2500 Robux / $25 Card -->
+            <!-- 1 Week -->
             <div class="card">
                 <h3>1 Week</h3>
-                <div class="price">2500 Robux <span class="or">or</span> $25</div>
-                <p>Full weekly tracking, deep gameplay reviews, and advanced combos.</p>
-                <a href="https://www.roblox.com/game-pass/872573981/glowing-carpet" target="_blank" class="buy-btn robux">Buy with Robux</a>
-                <button class="buy-btn paypal" onclick="copyDiscord()">Buy with PayPal ($25)</button>
+                <h1>2500 R$</h1>
+                <h1>25$/h1>
+                <p>Guaranteed Stage 1 Low / 1 Mid</p>
+                <a target="_blank" href="https://www.roblox.com/game-pass/872573981/glowing-carpet">Buy With Robux</a>
             </div>
 
-            <!-- 6000 Robux / $60 Card -->
+            <!-- 1 Month -->
             <div class="card">
                 <h3>1 Month</h3>
-                <div class="price">6000 Robux <span class="or">or</span> $60</div>
-                <p>Complete monthly mentorship. Permanent routine building and tournament prep.</p>
-                <a href="https://www.roblox.com/game-pass/872458428/gravity-coil" target="_blank" class="buy-btn robux">Buy with Robux</a>
-                <button class="buy-btn paypal" onclick="copyDiscord()">Buy with PayPal ($60)</button>
+                <h1>6000 R$</h1>
+                <h1>60$</h1>
+                <p>Guaranteed Stage 1 Low / 1 Mid</p>
+                <a target="_blank" href="https://www.roblox.com/game-pass/872458428/gravity-coil">Buy With Robux</a>
             </div>
 
-            <!-- 10000 Robux / $100 Card -->
+            <!-- Permanent -->
             <div class="card">
                 <h3>Permanent</h3>
-                <div class="price">10000 Robux <span class="or">or</span> $100</div>
-                <p>Lifetime access to coaching sessions, updates, and direct priority support line.</p>
-                <a href="https://www.roblox.com/game-pass/872573383/Admin-commands" target="_blank" class="buy-btn robux">Buy with Robux</a>
-                <button class="buy-btn paypal" onclick="copyDiscord()">Buy with PayPal ($100)</button>
+                <h1>10000 R$</h1>
+                <h1>100$</h1>
+                <p>Too Covered</p>
+                <a target="_blank" href="https://www.roblox.com/game-pass/872573383/Admin-commands">Buy With Robux</a>
             </div>
+
         </div>
     </section>
+
+    <!-- Payment Section -->
+    <section id="payment">
+        <h2 class="sectionTitle">PayPal</h2>
+        <div class="paypal">
+            <p>
+                Email:
+                asell.hxmzy7@gmail.com
+            </p>
+            <p>
+                If paying with PayPal, send the payment first.
+                <br><br>
+                Then continue below.
+            </p>
+            <p style="margin-top:25px;font-size:22px;">
+                After purchasing your training,
+                <br>
+                add me on Discord and send me a DM.
+            </p>
+            <p style="font-size:20px;line-height:40px;">
+                • Roblox Username
+                <br>
+                • Package Purchased
+                <br>
+                • Proof of Payment
+            </p>
+            <button onclick="copyDiscord()">Copy Discord Username</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        TOP 6 EUROPE
+        <br><br>
+        AKI @ 2026
+        <!-- Script linked correctly at the bottom -->
+        <script src="script.js" defer></script>
+    </footer>
 
 </body>
 </html>
