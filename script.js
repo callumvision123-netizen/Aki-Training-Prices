@@ -6,14 +6,15 @@
 // ===== Initialize Supabase Visitor Counter =====
 
 const SUPABASE_URL = 'https://qlmgetwhlranhumhyavg.supabase.co'; 
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbWdldHdobHJhbmh1bWh5YXZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1NDI1NjcsImV4cCI6MjA5OTExODU2N30.7pCiQfoqBaalXluGFOjjzR_9qV21BpOxQY99XZYAudM'; // ⚠️ Put your long eyJ... key here!
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbWdldHdobHJhbmh1bWh5YXZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc5Nzk5MDcsImV4cCI6MjAzNTU1NTkwN30.pCiQFoqBaa1XluGFOjjzR_9qV21BpOXQY99XZYAudM'; 
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Changed 'const supabase' to 'const SupabaseClient' to fix the initialization error!
+const SupabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 async function trackVisitor() {
     try {
         // 1. Tell Supabase to record a new visit
-        const { data, error } = await supabase.rpc('increment_visitor_count');
+        const { data, error } = await SupabaseClient.rpc('increment_visitor_count');
         
         if (error) throw error;
 
