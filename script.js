@@ -3,6 +3,37 @@
 // script.js
 // ======================================
 
+// ===== Initialize Supabase Visitor Counter =====
+
+const SUPABASE_URL = 'https://qlmgetwhlranhumhyavg.supabase.co'; 
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsbWdldHdobHJhbmh1bWh5YXZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1NDI1NjcsImV4cCI6MjA5OTExODU2N30.7pCiQfoqBaalXluGFOjjzR_9qV21BpOxQY99XZYAudM'; // ⚠️ Put your long eyJ... key here!
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function trackVisitor() {
+    try {
+        // 1. Tell Supabase to record a new visit
+        const { data, error } = await supabase.rpc('increment_visitor_count');
+        
+        if (error) throw error;
+
+        // 2. Update the counter element text with the new total
+        const counterElement = document.getElementById('visitor-count');
+        if (counterElement) {
+            counterElement.innerText = `${data.toLocaleString()} Players Visited`;
+        }
+    } catch (err) {
+        console.error('Error tracking visitor:', err);
+        const counterElement = document.getElementById('visitor-count');
+        if (counterElement) counterElement.innerText = 'Online';
+    }
+}
+
+// Run the counter setup immediately when the DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    trackVisitor();
+});
+
 // ===== Scroll Reveal =====
 
 const observer = new IntersectionObserver((entries) => {
@@ -97,13 +128,13 @@ const heroTitle = document.querySelector(".hero h1");
 
 setInterval(() => {
 
-    heroTitle.style.transform = "scale(1.03)";
+    if (heroTitle) {
+        heroTitle.style.transform = "scale(1.03)";
 
-    setTimeout(() => {
-
-        heroTitle.style.transform = "scale(1)";
-
-    }, 400);
+        setTimeout(() => {
+            heroTitle.style.transform = "scale(1)";
+        }, 400);
+    }
 
 }, 2500);
 
