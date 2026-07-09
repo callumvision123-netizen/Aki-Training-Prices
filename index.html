@@ -126,12 +126,20 @@
     </section>
 
     <!-- Footer Section -->
-    <footer>
-        TOP 6 EUROPE
-        <br><br>
-        AKI @ 2026
-        <script src="script.js" defer></script>
-    </footer>
+<footer>
+    TOP 6 EUROPE
+    <br><br>
+    AKI @ 2026
+</footer>
+
+<!-- Scripts Section -->
+<script src="script.js" defer></script>
+<script>
+    function cb(response) {
+        document.getElementById('visitor-count').innerText = "Views: " + response.value.toLocaleString();
+    }
+</script>
+<script async src="https://abacus.jasoncameron.dev/hit/top6europe.vercel.app/visits?callback=cb"></script>
 
 </body>
 </html>
