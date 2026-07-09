@@ -1,3 +1,25 @@
+// ===== Supabase Configuration =====
+const SUPABASE_URL = "YOUR_SUPABASE_URL";
+const SUPABASE_KEY = "YOUR_SUPABASE_KEY";
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function trackTotalViews() {
+    try {
+        const { data, error } = await supabase.rpc('increment_views'); 
+        const { data: viewData, error: fetchError } = await supabase
+            .from('analytics')
+            .select('count')
+            .eq('id', 1)
+            .single();
+
+        if (!fetchError && viewData) {
+            document.getElementById('visitor-count').innerText = `Views: ${viewData.count.toLocaleString()}`;
+        }
+    } catch (err) {
+        console.error("Error updating views:", err);
+        document.getElementById('visitor-count').innerText = "Views: Live";
+    }
+}
 // ======================================
 // TOP 6 EUROPE | AKI
 // script.js
@@ -216,3 +238,5 @@ document.querySelectorAll(".card").forEach(card => {
     });
 
 });
+// Run views tracking on load
+trackTotalViews();
